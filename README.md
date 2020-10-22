@@ -1,9 +1,13 @@
-# A Self-Certifying Compilation Framework for WebAssembly 
+# Whisk: A Self-Certifying Compilation Framework for WebAssembly 
 ---
 
 ## About
 
-In a *self-certifying* compiler, every optimization pass is designed to produce a candidate *proof* of its own correctness.  Proofs generated during a compilation run are checked automatically by an independent proof validator. The outcome is formally verified compilation, achieved *without* having to formally verify or trust the compiler code. Only the validator implementation must be trusted.
+This repository contains **Whisk**, a compilation framework for WebAssembly designed to help write provably correct compilers. 
+
+It also contains `whisk`, a WebAssembly-to-WebAssembly optimizing compiler written in this framework. 
+
+A *self-certifying* compiler follows a somewhat unusual route to provable correctness. There is no need to mathematically verify or trust the compiler itself. Instead, every optimization pass is designed to produce a candidate *proof* of its own correctness.  The proofs generated during a compilation run are checked automatically by an independent proof validator. If every proof is valid, so is the compilation. Thus, we achieve formally verified compilation, *without* having to formally verify or trust the compiler code. Only the validator implementation must be trusted.
 
 A proof is in the form of a relation between the states of the source and the target programs of an optimization pass. It is also called a *certificate* or a *witness*.
 
